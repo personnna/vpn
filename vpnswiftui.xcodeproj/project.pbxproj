@@ -14,6 +14,9 @@
 		434503972D36D6D000999617 /* vpnswiftuiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434503962D36D6D000999617 /* vpnswiftuiTests.swift */; };
 		434503A12D36D6D000999617 /* vpnswiftuiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434503A02D36D6D000999617 /* vpnswiftuiUITests.swift */; };
 		434503A32D36D6D000999617 /* vpnswiftuiUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434503A22D36D6D000999617 /* vpnswiftuiUITestsLaunchTests.swift */; };
+		434503B02D36D70700999617 /* VPNManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434503AF2D36D70700999617 /* VPNManager.swift */; };
+		434503B22D36D73E00999617 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434503B12D36D73E00999617 /* PacketTunnelProvider.swift */; };
+		434503B42D36D77D00999617 /* VLESSProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434503B32D36D77D00999617 /* VLESSProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,11 @@
 		4345039C2D36D6D000999617 /* vpnswiftuiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vpnswiftuiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		434503A02D36D6D000999617 /* vpnswiftuiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vpnswiftuiUITests.swift; sourceTree = "<group>"; };
 		434503A22D36D6D000999617 /* vpnswiftuiUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vpnswiftuiUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		434503AF2D36D70700999617 /* VPNManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNManager.swift; sourceTree = "<group>"; };
+		434503B12D36D73E00999617 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
+		434503B32D36D77D00999617 /* VLESSProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLESSProtocol.swift; sourceTree = "<group>"; };
+		43D6FD5C2D3AAE9800854F0B /* vpnswiftui.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = vpnswiftui.entitlements; sourceTree = "<group>"; };
+		43D6FD5D2D3AF2BA00854F0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +102,12 @@
 		434503842D36D6CE00999617 /* vpnswiftui */ = {
 			isa = PBXGroup;
 			children = (
+				43D6FD5D2D3AF2BA00854F0B /* Info.plist */,
+				43D6FD5C2D3AAE9800854F0B /* vpnswiftui.entitlements */,
 				434503852D36D6CE00999617 /* vpnswiftuiApp.swift */,
+				434503B32D36D77D00999617 /* VLESSProtocol.swift */,
+				434503AF2D36D70700999617 /* VPNManager.swift */,
+				434503B12D36D73E00999617 /* PacketTunnelProvider.swift */,
 				434503872D36D6CE00999617 /* ContentView.swift */,
 				434503892D36D6D000999617 /* Assets.xcassets */,
 				4345038B2D36D6D000999617 /* Preview Content */,
@@ -258,7 +271,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				434503882D36D6CE00999617 /* ContentView.swift in Sources */,
+				434503B02D36D70700999617 /* VPNManager.swift in Sources */,
+				434503B22D36D73E00999617 /* PacketTunnelProvider.swift in Sources */,
 				434503862D36D6CE00999617 /* vpnswiftuiApp.swift in Sources */,
+				434503B42D36D77D00999617 /* VLESSProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -404,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -419,12 +435,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = vpnswiftui/vpnswiftui.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"vpnswiftui/Preview Content\"";
-				DEVELOPMENT_TEAM = 2G9P37MK73;
+				DEVELOPMENT_TEAM = KF4T4F29C9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = vpnswiftui/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -435,7 +453,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yeldana.vpnswiftui;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fimacomarketingsa.vpnswiftui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -448,12 +466,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = vpnswiftui/vpnswiftui.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"vpnswiftui/Preview Content\"";
-				DEVELOPMENT_TEAM = 2G9P37MK73;
+				DEVELOPMENT_TEAM = KF4T4F29C9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = vpnswiftui/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -464,7 +484,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yeldana.vpnswiftui;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fimacomarketingsa.vpnswiftui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -479,11 +499,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2G9P37MK73;
+				DEVELOPMENT_TEAM = KF4T4F29C9;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yeldana.vpnswiftuiTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fimacomarketingsa.vpnswiftui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -499,11 +519,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2G9P37MK73;
+				DEVELOPMENT_TEAM = KF4T4F29C9;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yeldana.vpnswiftuiTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fimacomarketingsa.vpnswiftui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -518,10 +538,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2G9P37MK73;
+				DEVELOPMENT_TEAM = KF4T4F29C9;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yeldana.vpnswiftuiUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fimacomarketingsa.vpnswiftui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -536,10 +556,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2G9P37MK73;
+				DEVELOPMENT_TEAM = KF4T4F29C9;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yeldana.vpnswiftuiUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fimacomarketingsa.vpnswiftui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
